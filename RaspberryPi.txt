@@ -1,0 +1,20 @@
+***********************************
+*  Raspberry Pi (OS) Cheet Sheet  *
+***********************************
+
+
+Headless setup
+==============
+
+# touch boot/ssh
+# cat >> boot/wpa_supplicant.conf
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=DE
+
+network={
+  ssid="xxx"
+  psk="yyy"
+  key_mgmt=WPA-PSK
+}
+
