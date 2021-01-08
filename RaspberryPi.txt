@@ -18,3 +18,13 @@ network={
   key_mgmt=WPA-PSK
 }
 
+
+UART color coding
+=================
+
+red -> 5V
+black -> GND
+white -> TX
+green -> RX
+
+
