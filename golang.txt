@@ -1,0 +1,2 @@
+(dlv) p bodyJson["query"].(data)["pages"].(data)[0].(data)["revisions"].(data)[0].(data)["slots"].(data)["main"].(data)["content"]
+
