@@ -1,0 +1,9 @@
+# load v4l2loopback driver
+sudo modprobe v4l2loopback exclusive_caps=1
+
+# record sample
+ffmpeg -f v4l2 -framerate 25 -video_size 640x480 -i /dev/video1 foo.mkv
+
+# play video back to v4l2loopback
+ffmpeg -stream_loop -1 -re -i foo.avi -vf format=pix_fmts=yuv420p -f v4l2 /dev/video0
+
