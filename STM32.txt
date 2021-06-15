@@ -1,0 +1,33 @@
+Programming Nucleo-64 with J-Link:
+----------------------------------
+
+Nucleo-64 Jumper settings:
+  CN2: both off
+^^^--- That acutally doesn't seem to matter
+
+Connections:
+
+  J-Link   :   Nucleo
+    1      :     CN7 18 (5V)
+    7      :     CN7 13 (SWDIO)
+    9      :     CN7 15 (SWCLK)
+   20      :     CN7 20 (GND)
+
+Note: Nucleo needs to be powered by USB.
+
+J-Link Connector:
+  -----
+ | 1  2|
+ | 3  4|
+ | 5  6|
+ | 7  8|
+|  9 10|
+| 11 12|
+ |13 14|
+ |15 16|
+ |17 18|
+ |19 20|
+  -----
+
+
+
