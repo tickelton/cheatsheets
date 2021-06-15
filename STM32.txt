@@ -12,6 +12,7 @@ Connections:
     7      :     CN7 13 (SWDIO)
     9      :     CN7 15 (SWCLK)
    20      :     CN7 20 (GND)
+   15      :     CN7 14 (Reset, optional)
 
 Note: Nucleo needs to be powered by USB.
 
