@@ -1,0 +1,64 @@
+Merge repositories while preserving history
+-------------------------------------------
+
+Initial layout:
+
+$ ls -R repoa
+ repoa:
+  src
+ repoa/src:
+  foo.c
+
+$ ls -R repoa
+ repob:
+  src
+ repob/src:
+  bar.c
+
+
+Move contents of repob into a subdirectory 'repob' to
+prepare for merging into repoa.
+
+$ cd repob
+$ git filter-branch --index-filter \
+   'git ls-files -s | sed "s-\t\"*-&repob/-" |
+   GIT_INDEX_FILE=$GIT_INDEX_FILE.new \
+   git update-index --index-info &&
+   mv "$GIT_INDEX_FILE.new" "$GIT_INDEX_FILE"
+   ' --tag-name-filter cat -f -- --all
+
+The result:
+
+$ ls -R repob/
+ repob/:
+  repob
+ repob/repob:
+  src
+ repob/repob/src:
+  bar.c
+
+Add repob as a remote to repo a:
+
+$ cd repoa
+$ git remote add repob git@foobar.com/rebob.git
+
+Pull master from repob:
+
+$ git pull --allow-unrelated-histories repob master
+
+Remove temporary repob remote:
+
+$ git remote remove repob
+
+Final result:
+
+$ ls -R repoa
+ repoa:
+  repob  src
+ repoa/repob:
+  src
+ repoa/repob/src:
+  bar.c
+ repoa/src:
+  foo.c
+
