@@ -1,0 +1,46 @@
+tell west where to find the (pre-compiled) zephyr repo
+# export ZEPHYR_BASE=/path/to/zephyrproject/zephyr
+
+example project for out of path build
+# ls -R
+.:
+boards  CMakeLists.txt  dts  prj.conf  src
+./boards:
+arm
+./boards/arm:
+my-custom-board
+./boards/arm/my-custom-board:
+board.cmake  Kconfig  Kconfig.board  Kconfig.defconfig  my-custom-board_defconfig  my-custom-board.dts  my-custom-board.yaml  README.md
+./dts:
+arm
+./dts/arm:
+st
+./dts/arm/st:
+l5
+./dts/arm/st/l5:
+stm32l5.dtsi
+./src:
+main.c 
+
+standard build
+# west build -b lomu -- -DBOARD_ROOT=.
+
+verbose build
+# west -v build -b lomu -- -DBOARD_ROOT=.
+
+debug build (same for Release)
+# west build -b lomu -- -DBOARD_ROOT=. -DCMAKE_BUILD_TYPE=Debug
+
+force use of make instead of ninja
+# west build -b lomu -- -DBOARD_ROOT=. "-GUnix Makefiles"
+
+build with clean/really clean build dir
+# west build -b lomu -t clean -- -DBOARD_ROOT=.
+# west build -b lomu -t pristine -- -DBOARD_ROOT=.
+
+options for setting optimization levels
+# cat prj.conf
+CONFIG_DEBUG_OPTIMIZATIONS=y  # -> -Os
+CONFIG_DEBUG=y # -> Os
+CONFIG_NO_OPTIMIZATIONS=y  # -> -O0; overrides -Os
+
