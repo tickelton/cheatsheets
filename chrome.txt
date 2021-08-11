@@ -1,0 +1,2 @@
+To proceed to a website even though it shows a "NET::ERR_CERT_INVALID" error
+just type thisisunsafe to activate the hidden feature to ignore that error.
