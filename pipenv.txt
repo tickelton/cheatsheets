@@ -1,0 +1,1 @@
+>>> base64.urlsafe_b64encode(hashlib.sha256("/home/awesome_project/Pipfile".encode()).digest()[:6]).decode()
