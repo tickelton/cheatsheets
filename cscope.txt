@@ -17,6 +17,9 @@ CTRL-\ s
 # jump to previous/next position
 CTRL-o / CTRL-i
 
+# jump back and pop location from jump stack
+CTRL-t
+
 # horizontal screen split search
 CTRL-spacebar s
 
