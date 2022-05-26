@@ -1,0 +1,37 @@
+# build/update database
+find ${SRCDIR} -iname "*.cpp" >> ./cscope.files
+cscope -b -q
+
+# load database via environment variable
+export CSCOPE_DB=/foo/cscope.out
+
+# load database from running VIM instance
+:cs add /foo/cscope.out
+
+# VIM maps
+http://cscope.sourceforge.net/cscope_maps.vim
+
+# basic symbol search
+CTRL-\ s
+
+# jump to previous/next position
+CTRL-o / CTRL-i
+
+# horizontal screen split search
+CTRL-spacebar s
+
+# vertical screen split search
+CTRL-spacebar CTRL-spacebar s
+
+# search types:
+#       a: Find assignments to this symbol
+#       c: Find functions calling this function
+#       d: Find functions called by this function
+#       e: Find this egrep pattern
+#       f: Find this file
+#       g: Find this definition
+#       i: Find files #including this file
+#       s: Find this C symbol
+#       t: Find this text string
+:cs find a|c|d|e|f|g|i|s|t name
+
