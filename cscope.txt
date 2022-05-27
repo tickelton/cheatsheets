@@ -1,5 +1,5 @@
 # build/update database
-find ${SRCDIR} -iname "*.cpp" >> ./cscope.files
+find $(pwd) -iname "*.c" -o -iname "*.cpp" -o -iname "*.cxx" -o -iname "*.cc" -o -iname "*.h" -o -iname "*.hpp" -o -iname "*.hxx" -o -iname "*.hh" -o -iname "*.java" > cscope.files
 cscope -b -q
 
 # load database via environment variable
