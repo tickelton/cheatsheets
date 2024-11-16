@@ -1,0 +1,8 @@
+# pidin [fds|arguments|mem] [-p PID|NAME]
+# pidin info
+# pidin syspage=asinfo
+
+# cat /proc/vm/stats
+
+# source ~/qnx800/qnxsdp-env.sh
+# qcc -Vgcc_ntoaarch64le -o foo foo.c
